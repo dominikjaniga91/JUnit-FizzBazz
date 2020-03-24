@@ -12,33 +12,38 @@ public class FizzBuzzTest {
     FizzBuzz fizzBuzz = new FizzBuzz();
 
     @Test
+    @DisplayName("Should return 1 when getting first number of list")
     void shouldReturnFirstNumberOfTableEquals1(){
 
         assertThat(fizzBuzz.getListOfNumbers().get(1)).isEqualTo("1");
     }
 
     @Test
+    @DisplayName("Should return 101 when getting size od the list")
     void shouldReturnSizeOfListEquals100(){
 
         assertThat(fizzBuzz.getListOfNumbers().size()).isEqualTo(101);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Number {0} should return Fizz")
     @ValueSource(ints = {3,6,9,12,18,21,24,27,33})
+    @DisplayName("Should return Fizz when number is divisible by 3")
     void shouldReturnFizz_whenNumberIsDivisibleBy3(int numbers){
 
         assertThat(fizzBuzz.getListOfNumbers().get(numbers)).isEqualTo("Fizz");
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Number {0} should return Buzz")
     @ValueSource(ints = {5,10,20,25,35,40,50,55})
+    @DisplayName("Should return Buzz when number is divisible by 5")
     void shouldReturnBuzz_whenNumberIsDivisibleBy5(int number){
 
         assertThat(fizzBuzz.getListOfNumbers().get(number)).isEqualTo("Buzz");
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Number {0} should return FizzBuzz")
     @ValueSource(ints = {15,30,45,60,75})
+    @DisplayName("Should return FizzBuzz when number is divisible by 3 and 5")
     void shouldReturnFizzBuzz_whenNumberIsDivisibleBy3And5(int number){
 
         assertThat(fizzBuzz.getListOfNumbers().get(number)).isEqualTo("FizzBuzz");
@@ -52,11 +57,11 @@ public class FizzBuzzTest {
         assertThat(fizzBuzz.getListOfNumbers().get(number)).isEqualTo("Fizz");
     }
 
-    @ParameterizedTest(name = "Number {0} should return Fizz")
+    @ParameterizedTest(name = "Number {0} should return Buzz")
     @ValueSource(ints = {51,52,54,56})
     @DisplayName("Should return buzz when number contains 5")
     void shouldReturnBuzz_whenNumberContains5(int number) {
 
-        assertThat(fizzBuzz.getListOfNumbers().get(number)).isEqualTo("Fizz");
+        assertThat(fizzBuzz.getListOfNumbers().get(number)).isEqualTo("Buzz");
     }
 }

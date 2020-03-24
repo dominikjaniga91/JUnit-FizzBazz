@@ -16,7 +16,7 @@ public class FizzBuzz {
         for (int i = 0; i <= 100; i++) {
             if(i % 5 == 0 && i % 3 == 0){
                 listOfNumbers.add("FizzBuzz");
-            }else if( i % 5 == 0) {
+            }else if( i % 5 == 0 || ifContains5(i)) {
                 listOfNumbers.add("Buzz");
             }else if(i % 3 == 0 || ifContains3(i)){
                 listOfNumbers.add("Fizz");
@@ -27,8 +27,11 @@ public class FizzBuzz {
     }
 
     private boolean ifContains3(int number){
-
         return String.valueOf(number).contains("3");
+    }
+
+    private boolean ifContains5(int number){
+        return String.valueOf(number).contains("5");
     }
 
 }
