@@ -1,29 +1,25 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
-    List<String> listOfNumbers = new ArrayList<>();
-
-
     public List<String> getListOfNumbers() {
-        add100NumbersToList(listOfNumbers);
-        return listOfNumbers;
+        return IntStream.rangeClosed(0, 100).mapToObj(this::getFizzBuzz).collect(Collectors.toList());
     }
 
-    private void add100NumbersToList(List<String> listOfNumbers){
+    private String getFizzBuzz(int number){
 
-        for (int i = 0; i <= 100; i++) {
-            if(i % 5 == 0 && i % 3 == 0){
-                listOfNumbers.add("FizzBuzz");
-            }else if( i % 5 == 0 || ifContains5(i)) {
-                listOfNumbers.add("Buzz");
-            }else if(i % 3 == 0 || ifContains3(i)){
-                listOfNumbers.add("Fizz");
+            if(number % 5 == 0 && number % 3 == 0){
+               return "FizzBuzz";
+            }else if( number % 5 == 0 || ifContains5(number)) {
+                return "Buzz";
+            }else if(number % 3 == 0 || ifContains3(number)){
+                return "Fizz";
             }else{
-                listOfNumbers.add(String.valueOf(i));
+                return String.valueOf(number);
             }
-        }
+
     }
 
     private boolean ifContains3(int number){
