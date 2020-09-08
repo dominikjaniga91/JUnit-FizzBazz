@@ -4,6 +4,8 @@ import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
+    // https://codingdojo.org/kata/FizzBuzz
+
     public List<String> getListOfNumbers() {
         return IntStream.rangeClosed(0, 100).mapToObj(this::getFizzBuzz).collect(Collectors.toList());
     }
